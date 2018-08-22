@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Nav, Logo } from './style'
 
 class Header extends Component {
   render() {
     return (
-      <div>
-        header
-      </div>
+      <Nav>
+        <Logo />
+      </Nav>
     )
   }
 }
