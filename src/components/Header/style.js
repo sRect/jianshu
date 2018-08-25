@@ -54,7 +54,8 @@ export const NavItem = styled.li`
 `
 
 export const NavSearch = styled.input.attrs({
-  placeholder: '搜索'
+  placeholder: '搜索',
+  value: ''
 })`
   width: 136px;
   height: 38px;
@@ -70,6 +71,24 @@ export const NavSearch = styled.input.attrs({
   margin-top: -19px;
   &::placeholder {
     color: #999;
+  }
+`
+
+export const SearchBtn = styled.button.attrs({
+  title: '点击搜索'
+})`
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: 0;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  > .icon-zoom {
+    color: #969696;
   }
 `
 
@@ -96,8 +115,8 @@ export const UserBtn = styled.div`
     right: -12px;
   }
 `
-export const WriteBtn = styled.input.attrs({
-  value: '写文章'
+export const WriteBtn = styled.button.attrs({
+  title: '写文章'
 })`
   color: #fff;
   font-size: 15px;

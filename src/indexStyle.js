@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components'
+import './static/fonts/iconfont.css'
 
 injectGlobal`
 body, html {
