@@ -41,8 +41,48 @@ export const NavItem = styled.li`
     color: #ea6f5a;
   }
   &.searchWraper {
-    width: 175px;
+    width: 240px;
     position: relative;
+    input {
+      &.slide-enter {
+        transition: all .2s ease-out;
+      }
+      &.slider-enter-active {
+        width: 240px;
+      }
+      &.slide-exit {
+        transition: all .2s ease-out;
+      }
+      &.slider-exit-active {
+        width: 136px;
+      }
+    }
+    button {
+      &.slide-enter {
+        transition: all .2s ease-out;
+      }
+      &.slider-enter-active {
+        right: 8px;
+      }
+      &.slide-exit {
+        transition: all .2s ease-out;
+      }
+      &.slider-exit-active {
+        right: 110px;
+      }
+    }
+  }
+  &.focused {
+    input {
+      width: 240px;
+    }
+    button {
+      right: 8px;
+      background: #777;
+      > .icon-zoom {
+        color: #fff;
+      }
+    }
   }
   &.styleMode {
     width: 50px;
@@ -54,8 +94,8 @@ export const NavItem = styled.li`
 `
 
 export const NavSearch = styled.input.attrs({
-  placeholder: '搜索',
-  value: ''
+  type: 'text',
+  placeholder: '搜索'
 })`
   width: 136px;
   height: 38px;
@@ -81,10 +121,11 @@ export const SearchBtn = styled.button.attrs({
   height: 30px;
   background: none;
   border: 0;
+  border-radius: 50%;
   outline: none;
   position: absolute;
   top: 50%;
-  right: 50px;
+  right: 110px;
   transform: translateY(-50%);
   cursor: pointer;
   > .icon-zoom {
