@@ -117,6 +117,9 @@ export const SearchBtn = styled.button.attrs({
   > .icon-zoom {
     color: #969696;
   }
+  &:active {
+    background: #777;
+  }
 `
 
 export const UserBtn = styled.div`
