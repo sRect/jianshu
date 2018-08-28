@@ -43,7 +43,7 @@ export const NavItem = styled.li`
   &.searchWraper {
     width: 240px;
     position: relative;
-    input {
+    input, button{
       &.slide-enter {
         transition: all .2s ease-out;
       }
@@ -55,20 +55,6 @@ export const NavItem = styled.li`
       }
       &.slider-exit-active {
         width: 136px;
-      }
-    }
-    button {
-      &.slide-enter {
-        transition: all .2s ease-out;
-      }
-      &.slider-enter-active {
-        right: 8px;
-      }
-      &.slide-exit {
-        transition: all .2s ease-out;
-      }
-      &.slider-exit-active {
-        right: 110px;
       }
     }
   }
