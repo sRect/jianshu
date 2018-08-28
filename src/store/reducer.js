@@ -8,6 +8,18 @@ const headerReducer = (state = headerState, action) => {
       return state;
     case types.GETHEADER_INPUT_FOCUSED:
       return state;
+    case types.HANDLE_INPUT_CHANGE:
+      let newState = JSON.parse(JSON.stringify(state));
+      newState.inputVal = action.val;
+      return { ...newState }
+    case types.HANDLE_INPUT_FOCUS:
+      let newState2 = JSON.parse(JSON.stringify(state));
+      newState2.foucused = true;
+      return { ...newState2 }
+    case types.HANDLE_INPUT_BLUR:
+      let newState3 = JSON.parse(JSON.stringify(state));
+      newState3.foucused = false;
+      return { ...newState3 }
     default:
       return state;
   }

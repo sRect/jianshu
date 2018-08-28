@@ -2,31 +2,10 @@ import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import store from '../../store'
-import { getInputFoucused, getInputVal } from '../../store/actions'
+import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur } from '../../store/actions'
 import { HeaderWraper, Logo, Container, Nav, NavItem, NavSearch, SearchBtn, UserBtn, WriteBtn } from './style'
 
 class Header extends Component {
-
-  handleInputChange = (e) => {
-    let inputVal = e.target.value;
-
-    this.setState(() => ({
-      inputVal
-    }))
-  }
-
-  handleInputFocus = () => {
-    this.setState(() => ({
-      foucused: true
-    }))
-  }
-
-  handleInputBlur = () => {
-    this.setState(() => ({
-      foucused: false
-    }))
-  }
-
   render() {
     return (
       <HeaderWraper className="clearfix">
@@ -40,9 +19,9 @@ class Header extends Component {
               <CSSTransition in={this.props.foucused} timeout={200} classNames='slide'>
                 <NavSearch
                   value={this.props.inputVal}
-                  onChange={this.handleInputChange}
-                  onFocus={this.handleInputFocus}
-                  onBlur={this.handleInputBlur}>
+                  onChange={(e) => { this.props.handleInputChange(e.target.value) }}
+                  onFocus={this.props.handleInputFocus}
+                  onBlur={this.props.handleInputBlur}>
                 </NavSearch>
               </CSSTransition>
               <CSSTransition in={this.props.foucused} timeout={200} classNames='slide'>
@@ -84,6 +63,15 @@ const mapDispatchToProps = (dispatch) => {
     },
     getInputFoucused: () => {
       store.dispatch(getInputFoucused())
+    },
+    handleInputChange: (val) => {
+      store.dispatch(handleInputChange(val))
+    },
+    handleInputFocus: () => {
+      store.dispatch(handleInputFocus())
+    },
+    handleInputBlur: () => {
+      store.dispatch(handleInputBlur())
     }
   }
 }
