@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import { connect } from 'react-redux'
+import store from '../../store'
+import { getInputFoucused, getInputVal } from '../../store/actions'
 import { HeaderWraper, Logo, Container, Nav, NavItem, NavSearch, SearchBtn, UserBtn, WriteBtn } from './style'
 
 class Header extends Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      inputVal: '',
-      foucused: false
-    }
-  }
 
   handleInputChange = (e) => {
     let inputVal = e.target.value;
@@ -42,16 +36,16 @@ class Header extends Component {
             <NavItem className="active">发现</NavItem>
             <NavItem>关注</NavItem>
             <NavItem>消息</NavItem>
-            <NavItem className={this.state.foucused ? 'focused searchWraper' : 'searchWraper'}>
-              <CSSTransition in={this.state.foucused} timeout={200} classNames='slide'>
+            <NavItem className={this.props.foucused ? 'focused searchWraper' : 'searchWraper'}>
+              <CSSTransition in={this.props.foucused} timeout={200} classNames='slide'>
                 <NavSearch
-                  value={this.state.inputVal}
+                  value={this.props.inputVal}
                   onChange={this.handleInputChange}
                   onFocus={this.handleInputFocus}
                   onBlur={this.handleInputBlur}>
                 </NavSearch>
               </CSSTransition>
-              <CSSTransition in={this.state.foucused} timeout={200} classNames='slide'>
+              <CSSTransition in={this.props.foucused} timeout={200} classNames='slide'>
                 <SearchBtn>
                   <i className="iconfont icon-zoom"></i>
                 </SearchBtn>
@@ -76,4 +70,22 @@ class Header extends Component {
   }
 }
 
-export default Header
+const mapStateToProps = (state) => {
+  return {
+    inputVal: state.headerReducer.inputVal,
+    foucused: state.headerReducer.foucused
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getInputVal: () => {
+      store.dispatch(getInputVal())
+    },
+    getInputFoucused: () => {
+      store.dispatch(getInputFoucused())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
