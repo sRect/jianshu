@@ -23,6 +23,8 @@ const headerReducer = (state = headerState, action) => {
       // newState3.foucused = false;
       // return { ...newState3 }
       return state.set("foucused", false)
+    case types.HANDLE_INPUT_GETLIST:
+      return state.set("searchInfoList", action.searchInfoList)
     default:
       return state;
   }

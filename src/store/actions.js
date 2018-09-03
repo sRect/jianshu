@@ -1,5 +1,6 @@
 import * as types from './actionTypes'
 import axios from 'axios'
+import { fromJS } from 'immutable'
 
 export const getInputVal = () => {
   return {
@@ -32,17 +33,30 @@ export const handleInputBlur = () => {
   }
 }
 
+// 注意：这里searchInfoList要转为immutable对象
 export const handleInputGetList = (searchInfoList) => {
   return {
     type: types.HANDLE_INPUT_GETLIST,
-    searchInfoList
+    searchInfoList: fromJS(searchInfoList)
   }
 }
 
 export const getList = () => {
   return (dispatch) => {
-    axios.get('https://www.jianshu.com/trending_search').then(res => {
-      console.log(res)
+    axios.get('/api/headerList.json').then(res => {
+      let data = res.data;
+      let status = data.status;
+
+      switch (status) {
+        case 'success':
+          let arr = data.data;
+          dispatch(handleInputGetList(arr))
+          break;
+        case 'failure':
+          break;
+        default:
+          break;
+      }
     }).catch(error => {
       console.log(error)
     })

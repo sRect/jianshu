@@ -50,12 +50,11 @@ const Header = (props) => {
                 <SearchInfoChangeBtn className="fr">换一批</SearchInfoChangeBtn>
               </SearchInfoHeader>
               <SearchInfoBody className="clearfix">
-                <SearchInfoItem>hello</SearchInfoItem>
-                <SearchInfoItem>jack</SearchInfoItem>
-                <SearchInfoItem>你好，我是jack</SearchInfoItem>
-                <SearchInfoItem>区块链</SearchInfoItem>
-                <SearchInfoItem>你好，我是jack</SearchInfoItem>
-                <SearchInfoItem>你好，我是jack</SearchInfoItem>
+                {
+                  props.searchInfoList.map(item => {
+                    return <SearchInfoItem key={item}>{item}</SearchInfoItem>
+                  })
+                }
               </SearchInfoBody>
             </SearchInfo>
           </NavItem>
@@ -82,7 +81,8 @@ const mapStateToProps = (state) => {
     // inputVal: state.headerReducer.get("inputVal"),
     // foucused: state.headerReducer.get("foucused")
     inputVal: state.get("headerReducer").get("inputVal"),
-    foucused: state.getIn(["headerReducer", "foucused"])
+    foucused: state.getIn(["headerReducer", "foucused"]),
+    searchInfoList: state.getIn(["headerReducer", "searchInfoList"])
   }
 }
 
