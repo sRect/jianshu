@@ -2,7 +2,7 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import store from '../../store'
-import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur } from '../../store/actions'
+import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur, getList } from '../../store/actions'
 import {
   HeaderWraper,
   Logo,
@@ -99,6 +99,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleInputFocus: () => {
       store.dispatch(handleInputFocus())
+      store.dispatch(getList()) // axios获取数据
     },
     handleInputBlur: () => {
       store.dispatch(handleInputBlur())

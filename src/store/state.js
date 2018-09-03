@@ -2,5 +2,6 @@ import { fromJS } from 'immutable'
 
 export const headerState = fromJS({
   inputVal: '',
-  foucused: false
+  foucused: false,
+  searchInfoList: []
 })

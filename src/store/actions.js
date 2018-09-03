@@ -1,4 +1,5 @@
 import * as types from './actionTypes'
+import axios from 'axios'
 
 export const getInputVal = () => {
   return {
@@ -28,5 +29,22 @@ export const handleInputFocus = () => {
 export const handleInputBlur = () => {
   return {
     type: types.HANDLE_INPUT_BLUR
+  }
+}
+
+export const handleInputGetList = (searchInfoList) => {
+  return {
+    type: types.HANDLE_INPUT_GETLIST,
+    searchInfoList
+  }
+}
+
+export const getList = () => {
+  return (dispatch) => {
+    axios.get('https://www.jianshu.com/trending_search').then(res => {
+      console.log(res)
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
