@@ -113,6 +113,7 @@ export const SearchInfo = styled.div`
   border-radius: 4px;
   padding: 20px 20px 10px;
   box-sizing: border-box;
+  display: none;
   &::after {
     content: '';
     display: block;
@@ -124,6 +125,9 @@ export const SearchInfo = styled.div`
     position: absolute;
     top: -10px;
     left: 25px;
+  }
+  &.active {
+    display: block;
   }
 `
 

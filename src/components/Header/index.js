@@ -44,7 +44,7 @@ const Header = (props) => {
                 <i className="iconfont icon-zoom"></i>
               </SearchBtn>
             </CSSTransition>
-            <SearchInfo>
+            <SearchInfo className={props.foucused ? 'active' : ''}>
               <SearchInfoHeader className="clearfix">
                 <SearchInfoTitle className="fl">热门搜索</SearchInfoTitle>
                 <SearchInfoChangeBtn className="fr">换一批</SearchInfoChangeBtn>
