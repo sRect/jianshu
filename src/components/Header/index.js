@@ -3,7 +3,23 @@ import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import store from '../../store'
 import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur } from '../../store/actions'
-import { HeaderWraper, Logo, Container, Nav, NavItem, NavSearch, SearchBtn, UserBtn, WriteBtn } from './style'
+import {
+  HeaderWraper,
+  Logo,
+  Container,
+  Nav,
+  NavItem,
+  NavSearch,
+  SearchBtn,
+  UserBtn,
+  WriteBtn,
+  SearchInfo,
+  SearchInfoHeader,
+  SearchInfoTitle,
+  SearchInfoChangeBtn,
+  SearchInfoBody,
+  SearchInfoItem
+} from './style'
 
 const Header = (props) => {
   return (
@@ -28,6 +44,20 @@ const Header = (props) => {
                 <i className="iconfont icon-zoom"></i>
               </SearchBtn>
             </CSSTransition>
+            <SearchInfo>
+              <SearchInfoHeader className="clearfix">
+                <SearchInfoTitle className="fl">热门搜索</SearchInfoTitle>
+                <SearchInfoChangeBtn className="fr">换一批</SearchInfoChangeBtn>
+              </SearchInfoHeader>
+              <SearchInfoBody className="clearfix">
+                <SearchInfoItem>hello</SearchInfoItem>
+                <SearchInfoItem>jack</SearchInfoItem>
+                <SearchInfoItem>你好，我是jack</SearchInfoItem>
+                <SearchInfoItem>区块链</SearchInfoItem>
+                <SearchInfoItem>你好，我是jack</SearchInfoItem>
+                <SearchInfoItem>你好，我是jack</SearchInfoItem>
+              </SearchInfoBody>
+            </SearchInfo>
           </NavItem>
         </Nav>
         <Nav className="clearfix fr">

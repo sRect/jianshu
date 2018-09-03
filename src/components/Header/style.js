@@ -37,6 +37,7 @@ export const NavItem = styled.li`
   text-align: center;
   line-height: 60px;
   cursor: pointer;
+  position: relative;
   &.active {
     color: #ea6f5a;
   }
@@ -98,6 +99,69 @@ export const NavSearch = styled.input.attrs({
   &::placeholder {
     color: #999;
   }
+`
+
+export const SearchInfo = styled.div`
+  width: 250px;
+  // height: 158px;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 1px;
+  border-radius: 4px;
+  padding: 20px 20px 10px;
+  box-sizing: border-box;
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    position: absolute;
+    top: -10px;
+    left: 25px;
+  }
+`
+
+export const SearchInfoHeader = styled.div`
+  height: 20px;
+  margin-bottom: 10px;
+  line-height: 20px;
+`
+
+export const SearchInfoTitle = styled.span`
+  font-size: 14px;
+  color: #969696;
+`
+
+export const SearchInfoChangeBtn = styled.a.attrs({
+  href: 'javascript:;'
+})`
+  font-size: 13px;
+  color: #969696;
+  text-decoration: none;
+`
+
+export const SearchInfoBody = styled.ul`
+  width: 100%;
+  overflow: hidden;
+`
+
+export const SearchInfoItem = styled.li`
+  margin-right: 10px;
+  margin-bottom: 5px;
+  line-height: 20px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  float: left;
 `
 
 export const SearchBtn = styled.button.attrs({
