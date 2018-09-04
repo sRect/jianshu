@@ -44,6 +44,7 @@ export const NavItem = styled.li`
   &.searchWraper {
     width: 240px;
     position: relative;
+    cursor: auto;
     input, button{
       &.slide-enter {
         transition: all .2s ease-out;
@@ -166,6 +167,7 @@ export const SearchInfoItem = styled.li`
   border-radius: 3px;
   box-sizing: border-box;
   float: left;
+  cursor: pointer;
 `
 
 export const SearchBtn = styled.button.attrs({
