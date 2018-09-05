@@ -22,6 +22,8 @@ import {
 } from './style'
 
 const Header = (props) => {
+  const { foucused, inputVal, searchInfoList, handleInputChange, handleInputFocus, handleInputBlur } = props;
+
   return (
     <HeaderWraper className="clearfix">
       <Logo className="fl" />
@@ -30,28 +32,28 @@ const Header = (props) => {
           <NavItem className="active">发现</NavItem>
           <NavItem>关注</NavItem>
           <NavItem>消息</NavItem>
-          <NavItem className={props.foucused ? 'focused searchWraper' : 'searchWraper'}>
-            <CSSTransition in={props.foucused} timeout={200} classNames='slide'>
+          <NavItem className={foucused ? 'focused searchWraper' : 'searchWraper'}>
+            <CSSTransition in={foucused} timeout={200} classNames='slide'>
               <NavSearch
-                value={props.inputVal}
-                onChange={(e) => { props.handleInputChange(e.target.value) }}
-                onFocus={props.handleInputFocus}
-                onBlur={props.handleInputBlur}>
+                value={inputVal}
+                onChange={(e) => { handleInputChange(e.target.value) }}
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}>
               </NavSearch>
             </CSSTransition>
-            <CSSTransition in={props.foucused} timeout={200} classNames='slide'>
+            <CSSTransition in={foucused} timeout={200} classNames='slide'>
               <SearchBtn>
                 <i className="iconfont icon-zoom"></i>
               </SearchBtn>
             </CSSTransition>
-            <SearchInfo className={props.foucused ? 'active' : ''}>
+            <SearchInfo className={foucused ? 'active' : ''}>
               <SearchInfoHeader className="clearfix">
                 <SearchInfoTitle className="fl">热门搜索</SearchInfoTitle>
                 <SearchInfoChangeBtn className="fr">换一批</SearchInfoChangeBtn>
               </SearchInfoHeader>
               <SearchInfoBody className="clearfix">
                 {
-                  props.searchInfoList.map(item => {
+                  searchInfoList.map(item => {
                     return <SearchInfoItem key={item}>{item}</SearchInfoItem>
                   })
                 }
