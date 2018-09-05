@@ -25,6 +25,8 @@ const headerReducer = (state = headerState, action) => {
       return state.set("foucused", false)
     case types.HANDLE_INPUT_GETLIST:
       return state.set("searchInfoList", action.searchInfoList)
+    case types.CHANGE_MOUSEIN:
+      return state.set("mouseIn", action.arg)
     default:
       return state;
   }

@@ -62,3 +62,10 @@ export const getList = () => {
     })
   }
 }
+
+export const changeMouseIn = (arg) => {
+  return {
+    type: types.CHANGE_MOUSEIN,
+    arg
+  }
+}

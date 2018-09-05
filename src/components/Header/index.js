@@ -2,7 +2,7 @@ import React from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import store from '../../store'
-import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur, getList } from '../../store/actions'
+import { getInputFoucused, getInputVal, handleInputChange, handleInputFocus, handleInputBlur, getList, changeMouseIn } from '../../store/actions'
 import {
   HeaderWraper,
   Logo,
@@ -22,7 +22,7 @@ import {
 } from './style'
 
 const Header = (props) => {
-  const { foucused, inputVal, searchInfoList, handleInputChange, handleInputFocus, handleInputBlur } = props;
+  const { foucused, inputVal, mouseIn, searchInfoList, handleInputChange, handleInputFocus, handleInputBlur, changeMouseIn } = props;
 
   return (
     <HeaderWraper className="clearfix">
@@ -46,7 +46,10 @@ const Header = (props) => {
                 <i className="iconfont icon-zoom"></i>
               </SearchBtn>
             </CSSTransition>
-            <SearchInfo className={foucused ? 'active' : ''}>
+            <SearchInfo
+              className={foucused || mouseIn ? 'active' : ''}
+              onMouseEnter={() => { changeMouseIn(true) }}
+              onMouseLeave={() => { changeMouseIn(false) }}>
               <SearchInfoHeader className="clearfix">
                 <SearchInfoTitle className="fl">热门搜索</SearchInfoTitle>
                 <SearchInfoChangeBtn className="fr">换一批</SearchInfoChangeBtn>
@@ -84,6 +87,7 @@ const mapStateToProps = (state) => {
     // foucused: state.headerReducer.get("foucused")
     inputVal: state.get("headerReducer").get("inputVal"),
     foucused: state.getIn(["headerReducer", "foucused"]),
+    mouseIn: state.getIn(["headerReducer", "mouseIn"]),
     searchInfoList: state.getIn(["headerReducer", "searchInfoList"])
   }
 }
@@ -105,6 +109,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleInputBlur: () => {
       store.dispatch(handleInputBlur())
+    },
+    changeMouseIn: (arg) => {
+      store.dispatch(changeMouseIn(arg))
     }
   }
 }
