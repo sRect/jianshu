@@ -1,6 +1,7 @@
 import * as types from './actionTypes'
 import axios from 'axios'
 import { fromJS } from 'immutable'
+import { headerState } from './state'
 
 export const getInputVal = () => {
   return {
@@ -35,9 +36,12 @@ export const handleInputBlur = () => {
 
 // 注意：这里searchInfoList要转为immutable对象
 export const handleInputGetList = (searchInfoList) => {
+  let newHeaderState = headerState.toJS();
+
   return {
     type: types.HANDLE_INPUT_GETLIST,
-    searchInfoList: fromJS(searchInfoList)
+    searchInfoList: fromJS(searchInfoList),
+    totalPage: Math.ceil(searchInfoList.length / newHeaderState.pageSize)
   }
 }
 
@@ -67,5 +71,12 @@ export const changeMouseIn = (arg) => {
   return {
     type: types.CHANGE_MOUSEIN,
     arg
+  }
+}
+
+export const handleChangeList = (currentPage) => {
+  return {
+    type: types.HANDLE_CHANGE_LIST,
+    currentPage
   }
 }

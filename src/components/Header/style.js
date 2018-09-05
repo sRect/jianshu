@@ -144,7 +144,7 @@ export const SearchInfoTitle = styled.span`
 `
 
 export const SearchInfoChangeBtn = styled.a.attrs({
-  href: '/'
+  href: 'javascript:void(0)'
 })`
   font-size: 13px;
   color: #969696;

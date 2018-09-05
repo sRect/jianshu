@@ -24,9 +24,16 @@ const headerReducer = (state = headerState, action) => {
       // return { ...newState3 }
       return state.set("foucused", false)
     case types.HANDLE_INPUT_GETLIST:
-      return state.set("searchInfoList", action.searchInfoList)
+      // return state.set("searchInfoList", action.searchInfoList).set("totalPage", action.totalPage)
+      // 多个set,可以使用merge方法
+      return state.merge({
+        searchInfoList: action.searchInfoList,
+        totalPage: action.totalPage
+      })
     case types.CHANGE_MOUSEIN:
       return state.set("mouseIn", action.arg)
+    case types.HANDLE_CHANGE_LIST:
+      return state.set("currentPage", action.currentPage)
     default:
       return state;
   }
