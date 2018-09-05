@@ -55,9 +55,11 @@ class Header extends Component {
     // 可以通过toJS()方法转换
     for (let i = (currentPage - 1) * pageSize, len = currentPage * pageSize; i < len; i++) {
       if (newList.length) {
-        pageList.push(
-          <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
-        )
+        if (newList[i]) {
+          pageList.push(
+            <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+          )
+        }
       }
     }
 
@@ -152,7 +154,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleChangeList: (currentPage, totalPage) => {
       console.log(currentPage, totalPage)
-      if (currentPage > totalPage) {
+      if (currentPage + 1 > totalPage) {
         store.dispatch(handleChangeList(1))
       } else {
         store.dispatch(handleChangeList(currentPage + 1))
