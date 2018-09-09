@@ -91,7 +91,10 @@ class Header extends Component {
                 onMouseLeave={() => { changeMouseIn(false) }}>
                 <SearchInfoHeader className="clearfix">
                   <SearchInfoTitle className="fl">热门搜索</SearchInfoTitle>
-                  <SearchInfoChangeBtn className="fr" onClick={() => { handleChangeList(currentPage, totalPage) }}>换一批</SearchInfoChangeBtn>
+                  <SearchInfoChangeBtn className="fr" onClick={() => { handleChangeList(currentPage, totalPage, this.spinIcon) }}>
+                    <i ref={(spinIcon) => { this.spinIcon = spinIcon }} className="iconfont icon-spin"></i>
+                    换一批
+                  </SearchInfoChangeBtn>
                 </SearchInfoHeader>
                 <SearchInfoBody className="clearfix">
                   {pageList}
@@ -152,8 +155,19 @@ const mapDispatchToProps = (dispatch) => {
     changeMouseIn: (arg) => {
       store.dispatch(changeMouseIn(arg))
     },
-    handleChangeList: (currentPage, totalPage) => {
-      console.log(currentPage, totalPage)
+    handleChangeList: (currentPage, totalPage, spinIcon) => {
+      // console.log(spinIcon.style.transform)
+      let originAngle = spinIcon.style.transform.replace(/[^0-9]/ig, '');
+
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+
+      console.log(originAngle)
+
+      spinIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       if (currentPage + 1 > totalPage) {
         store.dispatch(handleChangeList(1))
       } else {

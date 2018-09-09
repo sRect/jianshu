@@ -149,6 +149,15 @@ export const SearchInfoChangeBtn = styled.a.attrs({
   font-size: 13px;
   color: #969696;
   text-decoration: none;
+  > .icon-spin {
+    display: inline-block;
+    margin-right: 2px;
+    position: relative;
+    top: 2px;
+    transition: all .2s ease-in;
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
 `
 
 export const SearchInfoBody = styled.ul`
