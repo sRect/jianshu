@@ -76,7 +76,7 @@ class Header extends Component {
                 <NavSearch
                   value={inputVal}
                   onChange={(e) => { handleInputChange(e.target.value) }}
-                  onFocus={handleInputFocus}
+                  onFocus={() => { handleInputFocus(searchInfoList) }}
                   onBlur={handleInputBlur}>
                 </NavSearch>
               </CSSTransition>
@@ -145,9 +145,10 @@ const mapDispatchToProps = (dispatch) => {
     handleInputChange: (val) => {
       store.dispatch(handleInputChange(val))
     },
-    handleInputFocus: () => {
+    handleInputFocus: (searchInfoList) => {
+      // searchInfoList.size === 0 ? store.dispatch(getList()) : ''; // axios获取数据
+      (searchInfoList.size === 0) && store.dispatch(getList());
       store.dispatch(handleInputFocus())
-      store.dispatch(getList()) // axios获取数据
     },
     handleInputBlur: () => {
       store.dispatch(handleInputBlur())
