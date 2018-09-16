@@ -57,6 +57,7 @@ export const ListWrapper = styled.ol`
 export const ListItem = styled.li`
   position: relative;
   width: 100%;
+  // min-height: 140px;
   margin: 0 0 15px;
   padding: 15px 2px 20px 0;
   border-bottom: 1px solid #f0f0f0;

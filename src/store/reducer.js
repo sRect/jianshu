@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable'
-import { headerState, topicState } from './state'
+import { headerState, topicState, listState } from './state'
 import * as types from './actionTypes'
 
 // Header
@@ -48,9 +48,18 @@ const topicReducer = (state = topicState, action) => {
   }
 }
 
+// List
+const listReducer = (state = listState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
 const allReducer = {
   headerReducer,
-  topicReducer
+  topicReducer,
+  listReducer
 }
 
 const rootReducer = combineReducers(allReducer)
