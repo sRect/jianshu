@@ -3,6 +3,7 @@ import axios from 'axios'
 import { fromJS } from 'immutable'
 import { headerState } from './state'
 
+// Header
 export const getInputVal = () => {
   return {
     type: types.GETHEADER_INPUT_VAL
@@ -80,3 +81,10 @@ export const handleChangeList = (currentPage) => {
     currentPage
   }
 }
+
+// // Topic
+// export const handleGetList = () => {
+//   return {
+//     type: types.HANDLE_GET_LIST
+//   }
+// }

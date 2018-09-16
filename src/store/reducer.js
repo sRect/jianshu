@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux-immutable'
-import { headerState } from './state'
+import { headerState, topicState } from './state'
 import * as types from './actionTypes'
 
+// Header
 const headerReducer = (state = headerState, action) => {
   switch (action.type) {
     case types.GETHEADER_INPUT_VAL:
@@ -39,8 +40,17 @@ const headerReducer = (state = headerState, action) => {
   }
 }
 
+// Topic
+const topicReducer = (state = topicState, action) => {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}
+
 const allReducer = {
-  headerReducer
+  headerReducer,
+  topicReducer
 }
 
 const rootReducer = combineReducers(allReducer)
