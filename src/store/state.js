@@ -44,3 +44,27 @@ export const listState = fromJS({
     imgUrl: '//upload-images.jianshu.io/upload_images/11594709-3d0763c6be331793?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
   }]
 })
+
+export const recommendState = fromJS({
+  recommendList: [{
+    id: 1,
+    imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png',
+    alt: '7日热门'
+  }, {
+    id: 2,
+    imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png',
+    alt: '30日热门'
+  }, {
+    id: 3,
+    imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png',
+    alt: '优选连载'
+  }, {
+    id: 4,
+    imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png',
+    alt: '简书版权'
+  }, {
+    id: 5,
+    imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png',
+    alt: '简书大学堂'
+  }]
+})

@@ -88,3 +88,58 @@ export const ListItem = styled.li`
     }
   }
 `
+
+export const RecommendWrapper = styled.div`
+  margin-top: -4px;
+  padding-bottom: 4px;
+  min-height: 228px;
+`
+
+export const RecommendItem = styled.a.attrs({
+  href: `javascript:;`,
+  target: '_blank'
+})`
+  color: #333;
+  cursor: pointer;
+  > img {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+    border: 0;
+  }
+`
+export const QRcode = styled.a.attrs({
+  href: `javascript:;`,
+  target: '_blank'
+})`
+  margin-bottom: 30px;
+  padding: 10px 22px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background-color: #fff;
+  display: block;
+  > .qrcode {
+    width: 60px;
+    height: 60px;
+    opacity: .85;
+    vertical-align: middle;
+    border: 0;
+  }
+  > .info {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+    > .title {
+      font-size: 15px;
+      color: #333;
+    }
+    > .description {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #999;
+    }
+  }
+`
