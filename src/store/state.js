@@ -15,15 +15,3 @@ export const homeState = fromJS({
   articleList: [],
   recommendList: []
 })
-
-export const topicState = fromJS({
-  topicList: []
-})
-
-export const listState = fromJS({
-  articleList: []
-})
-
-export const recommendState = fromJS({
-  recommendList: []
-})

@@ -27,7 +27,7 @@ class List extends Component {
 
 const mapStateToProps = state => {
   return {
-    list: state.getIn(["listReducer", "articleList"])
+    list: state.getIn(["homeReducer", "articleList"])
   }
 }
 

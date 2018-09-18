@@ -27,7 +27,7 @@ class Topic extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    list: state.getIn(["topicReducer", "topicList"])
+    list: state.getIn(["homeReducer", "topicList"])
   }
 }
 

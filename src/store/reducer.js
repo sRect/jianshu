@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable'
-import { headerState, topicState, listState, recommendState, homeState } from './state'
+import { headerState, homeState } from './state'
 import * as types from './actionTypes'
 
 // Header
@@ -40,31 +40,7 @@ const headerReducer = (state = headerState, action) => {
   }
 }
 
-// Topic
-const topicReducer = (state = topicState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-// List
-const listReducer = (state = listState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-// Recommend
-const recommendReducer = (state = recommendState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-// Hone
+// Home
 const homeReducer = (state = homeState, action) => {
   switch (action.type) {
     case types.HANDLE_GET_HOME_DATA:
@@ -80,9 +56,6 @@ const homeReducer = (state = homeState, action) => {
 
 const allReducer = {
   headerReducer,
-  topicReducer,
-  listReducer,
-  recommendReducer,
   homeReducer
 }
 

@@ -82,13 +82,6 @@ export const handleChangeList = (currentPage) => {
   }
 }
 
-// // Topic
-// export const handleGetList = () => {
-//   return {
-//     type: types.HANDLE_GET_LIST
-//   }
-// }
-
 // Home
 const getHomeData = (arg) => {
   return {

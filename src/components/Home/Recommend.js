@@ -32,7 +32,7 @@ class Recommend extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  list: state.getIn(["recommendReducer", "recommendList"])
+  list: state.getIn(["homeReducer", "recommendList"])
 })
 
 
