@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { handleGetHomeData } from '../../store/actions'
 import Topic from './Topic'
 import List from './List'
 import Recommend from './Recommend'
@@ -25,6 +27,18 @@ class Home extends Component {
       </HomeWrapper>
     )
   }
+
+  componentDidMount() {
+    this.props.handleGetHomeData();
+  }
 }
 
-export default Home
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleGetHomeData: () => {
+      dispatch(handleGetHomeData());
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Home)

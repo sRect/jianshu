@@ -88,3 +88,33 @@ export const handleChangeList = (currentPage) => {
 //     type: types.HANDLE_GET_LIST
 //   }
 // }
+
+// Home
+const getHomeData = (arg) => {
+  return {
+    type: types.HANDLE_GET_HOME_DATA,
+    arg
+  }
+}
+
+export const handleGetHomeData = () => {
+  return (dispatch) => {
+    axios.get("/api/homeData.json").then(res => {
+      let data = res.data;
+      let status = data.status;
+
+      switch (status) {
+        case 'success':
+          let arg = data.data;
+          dispatch(getHomeData(arg));
+          break;
+        case 'failure':
+          break;
+        default:
+          break;
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+}

@@ -9,3 +9,6 @@ export const CHANGE_MOUSEIN = 'CHANGE_MOUSEIN'
 export const HANDLE_CHANGE_LIST = 'HANDLE_CHANGE_LIST'
 // Topic
 // export const HANDLE_GET_LIST = 'HANDLE_GET_LIST'
+
+// Home
+export const HANDLE_GET_HOME_DATA = 'HANDLE_GET_HOME_DATA'

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable'
-import { headerState, topicState, listState, recommendState } from './state'
+import { headerState, topicState, listState, recommendState, homeState } from './state'
 import * as types from './actionTypes'
 
 // Header
@@ -64,11 +64,26 @@ const recommendReducer = (state = recommendState, action) => {
   }
 }
 
+// Hone
+const homeReducer = (state = homeState, action) => {
+  switch (action.type) {
+    case types.HANDLE_GET_HOME_DATA:
+      return state.merge({
+        topicList: action.arg.topicList,
+        articleList: action.arg.articleList,
+        recommendList: action.arg.recommendList
+      })
+    default:
+      return state;
+  }
+}
+
 const allReducer = {
   headerReducer,
   topicReducer,
   listReducer,
-  recommendReducer
+  recommendReducer,
+  homeReducer
 }
 
 const rootReducer = combineReducers(allReducer)
