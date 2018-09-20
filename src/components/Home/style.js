@@ -156,5 +156,10 @@ export const LoadMore = styled.button.attrs({
   margin: 30px auto 60px;
   padding: 10px 15px;
   background-color: #a5a5a5;
+  border: 0;
+  outline: none;
   cursor: pointer;
+  &:hover {
+    background-color: #9b9b9b;
+  }
 `

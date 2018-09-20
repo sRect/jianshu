@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "data": {
+    "articleList": [
+      {
+        "id": 4,
+        "title": "有那种网站吗",
+        "desc": "工作中，我们常常有一些很小需求，比如传图的时候图片太大，需要压缩一下。 而往往专业的工具动辄几百M，下载安装仅仅是用其中的一个小功能，实在不值得...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/9807853-11fe67ba82dc2ed9.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+      },
+      {
+        "id": 5,
+        "title": "一群90后小姐姐的大理旅拍一日游",
+        "desc": "6月底，由于我们公司业绩很好，为了奖励我们这些优秀的员工，决定组织我们云南大理游玩，作为奖励，由于本次出行的有情侣，有单身妹子，所以公司老总决定...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/4952818-179a5639d0a8c9bd.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+      },
+      {
+        "id": 6,
+        "title": "邓文迪这么会撩汉，只因做到了这4点！",
+        "desc": "文|院长 对于媒体而言，邓文迪有着百慕大一样的磁力：她是一个人人都想解开的谜。 这个出身...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/11594709-3d0763c6be331793?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+      }
+    ]
+  }
+}

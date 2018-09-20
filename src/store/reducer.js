@@ -49,6 +49,8 @@ const homeReducer = (state = homeState, action) => {
         articleList: action.arg.articleList,
         recommendList: action.arg.recommendList
       })
+    case types.LOAD_MORE_ARTICLE:
+      return state.set("articleList", state.get("articleList").concat(action.arg))
     default:
       return state;
   }

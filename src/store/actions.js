@@ -90,6 +90,13 @@ const getHomeData = (arg) => {
   }
 }
 
+const loadMoreArticle = (arg) => {
+  return {
+    type: types.LOAD_MORE_ARTICLE,
+    arg: fromJS(arg)
+  }
+}
+
 export const handleGetHomeData = () => {
   return (dispatch) => {
     axios.get("/api/homeData.json").then(res => {
@@ -100,6 +107,28 @@ export const handleGetHomeData = () => {
         case 'success':
           let arg = data.data;
           dispatch(getHomeData(arg));
+          break;
+        case 'failure':
+          break;
+        default:
+          break;
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+}
+
+export const handleGetMoreArticle = () => {
+  return (dispatch) => {
+    axios.get("/api/loadMoreArticle.json").then(res => {
+      let data = res.data;
+      let status = data.status;
+
+      switch (status) {
+        case 'success':
+          let arg = data.data.articleList;
+          dispatch(loadMoreArticle(arg));
           break;
         case 'failure':
           break;
