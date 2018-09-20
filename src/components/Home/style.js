@@ -143,3 +143,18 @@ export const QRcode = styled.a.attrs({
     }
   }
 `
+
+export const LoadMore = styled.button.attrs({
+  title: '点击查看更多'
+})`
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+  margin: 30px auto 60px;
+  padding: 10px 15px;
+  background-color: #a5a5a5;
+  cursor: pointer;
+`
