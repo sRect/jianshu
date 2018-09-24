@@ -163,3 +163,18 @@ export const LoadMore = styled.button.attrs({
     background-color: #9b9b9b;
   }
 `
+
+export const BackToTop = styled.div.attrs({
+  title: '返回顶部'
+})`
+  font-size: 12px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+  line-height: 50px;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  cursor: pointer;
+`

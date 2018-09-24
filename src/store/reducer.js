@@ -51,6 +51,8 @@ const homeReducer = (state = homeState, action) => {
       })
     case types.LOAD_MORE_ARTICLE:
       return state.set("articleList", state.get("articleList").concat(action.arg))
+    case types.TOGGLE_SCROLLTOP_SHOW:
+      return state.set("showScroll", action.arg)
     default:
       return state;
   }

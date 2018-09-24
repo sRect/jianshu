@@ -140,3 +140,10 @@ export const handleGetMoreArticle = () => {
     })
   }
 }
+
+export const toggleScrollTopShow = (arg) => {
+  return {
+    type: types.TOGGLE_SCROLLTOP_SHOW,
+    arg
+  }
+}

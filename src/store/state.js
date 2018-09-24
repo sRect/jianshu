@@ -13,5 +13,6 @@ export const headerState = fromJS({
 export const homeState = fromJS({
   topicList: [],
   articleList: [],
-  recommendList: []
+  recommendList: [],
+  showScroll: false
 })
