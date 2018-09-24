@@ -156,9 +156,9 @@ const getDetailData = (arg) => {
   }
 }
 
-export const handleGetDetailData = () => {
+export const handleGetDetailData = (detailID) => {
   return (dispatch) => {
-    axios.get("/api/detailData.json").then(res => {
+    axios.get("/api/detailData.json?id=" + detailID).then(res => {
       let data = res.data;
       let status = data.status;
 
