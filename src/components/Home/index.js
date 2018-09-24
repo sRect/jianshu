@@ -46,6 +46,10 @@ class Home extends Component {
     this.props.handleGetHomeData();
     this.handleChangeScrollTopShow();
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.props.changeScrollTopShow);
+  }
 }
 
 const mapStateToProps = (state) => {
