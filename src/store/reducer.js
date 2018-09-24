@@ -61,6 +61,11 @@ const homeReducer = (state = homeState, action) => {
 // Detail
 const detailReducer = (state = detailState, action) => {
   switch (action.type) {
+    case types.GET_DETAIL_DATA:
+      return state.merge({
+        title: action.arg.title,
+        content: action.arg.content
+      })
     default:
       return state;
   }

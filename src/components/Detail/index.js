@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { handleGetDetailData } from '../../store/actions'
 import { DetailWrapper, Header, Content } from './style'
 
 class Detail extends Component {
@@ -12,6 +13,10 @@ class Detail extends Component {
       </DetailWrapper>
     )
   }
+
+  componentDidMount() {
+    this.props.getDetailData();
+  }
 }
 
 const mapState = (state) => {
@@ -21,4 +26,12 @@ const mapState = (state) => {
   }
 }
 
-export default connect(mapState, null)(Detail)
+const mapDispatch = (dispatch) => {
+  return {
+    getDetailData: () => {
+      dispatch(handleGetDetailData())
+    }
+  }
+}
+
+export default connect(mapState, mapDispatch)(Detail)

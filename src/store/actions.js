@@ -147,3 +147,33 @@ export const toggleScrollTopShow = (arg) => {
     arg
   }
 }
+
+// Detail
+const getDetailData = (arg) => {
+  return {
+    type: types.GET_DETAIL_DATA,
+    arg
+  }
+}
+
+export const handleGetDetailData = () => {
+  return (dispatch) => {
+    axios.get("/api/detailData.json").then(res => {
+      let data = res.data;
+      let status = data.status;
+
+      switch (status) {
+        case 'success':
+          let arg = data.data;
+          dispatch(getDetailData(arg));
+          break;
+        case 'failure':
+          break;
+        default:
+          break;
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+}
