@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable'
-import { headerState, homeState, detailState } from './state'
+import { headerState, homeState, detailState, loginState } from './state'
 import * as types from './actionTypes'
 
 // Header
@@ -71,10 +71,21 @@ const detailReducer = (state = detailState, action) => {
   }
 }
 
+// Login
+const loginReducer = (state = loginState, action) => {
+  switch (action.type) {
+    case types.CHANGE_LOGIN_STATUS:
+      return state.set("isLogin", action.arg)
+    default:
+      return state;
+  }
+}
+
 const allReducer = {
   headerReducer,
   homeReducer,
-  detailReducer
+  detailReducer,
+  loginReducer
 }
 
 const rootReducer = combineReducers(allReducer)

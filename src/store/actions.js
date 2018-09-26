@@ -177,3 +177,34 @@ export const handleGetDetailData = (detailID) => {
     })
   }
 }
+
+// Login
+const changeLogin = (arg) => {
+  return {
+    type: types.CHANGE_LOGIN_STATUS,
+    arg
+  }
+}
+
+export const handleLogin = (arg) => {
+  return (dispatch) => {
+    axios.get("/api/login.json").then(res => {
+      let data = res.data;
+      let status = data.status;
+
+      switch (status) {
+        case 'success':
+          let result = data.data;
+          console.log(arg)
+          dispatch(changeLogin(result));
+          break;
+        case 'failure':
+          break;
+        default:
+          break;
+      }
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+}

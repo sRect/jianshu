@@ -15,3 +15,6 @@ export const TOGGLE_SCROLLTOP_SHOW = 'TOGGLE_SCROLLTOP_SHOW'
 
 // Detail
 export const GET_DETAIL_DATA = 'GET_DETAIL_DATA'
+
+// Login
+export const CHANGE_LOGIN_STATUS = 'CHANGE_LOGIN_STATUS'

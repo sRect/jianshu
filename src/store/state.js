@@ -21,3 +21,7 @@ export const detailState = fromJS({
   title: '',
   content: ''
 })
+
+export const loginState = fromJS({
+  isLogin: false
+})

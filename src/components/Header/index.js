@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
 import store from '../../store'
+import { Link } from 'react-router-dom'
 import {
   getInputFoucused,
   getInputVal,
@@ -21,7 +22,7 @@ import {
   NavItem,
   NavSearch,
   SearchBtn,
-  UserBtn,
+  // UserBtn,
   WriteBtn,
   SearchInfo,
   SearchInfoHeader,
@@ -46,7 +47,8 @@ class Header extends Component {
       handleInputFocus,
       handleInputBlur,
       changeMouseIn,
-      handleChangeList
+      handleChangeList,
+      isLogin
     } = this.props;
 
     const pageList = [];
@@ -106,9 +108,12 @@ class Header extends Component {
             <NavItem className="fl styleMode">
               <i className="iconfont icon-Aa"></i>
             </NavItem>
-            <NavItem className="fl userWraper">
+            {
+              isLogin ? <NavItem>退出</NavItem> : <Link to='/login'><NavItem>登录</NavItem></Link>
+            }
+            {/* <NavItem className="fl userWraper">
               <UserBtn></UserBtn>
-            </NavItem>
+            </NavItem> */}
           </Nav>
         </Container>
         <WriteBtn className="fr">
@@ -130,7 +135,8 @@ const mapStateToProps = (state) => {
     currentPage: state.getIn(["headerReducer", "currentPage"]),
     totalPage: state.getIn(["headerReducer", "totalPage"]),
     pageSize: state.getIn(["headerReducer", "pageSize"]),
-    searchInfoList: state.getIn(["headerReducer", "searchInfoList"])
+    searchInfoList: state.getIn(["headerReducer", "searchInfoList"]),
+    isLogin: state.getIn(["loginReducer", "isLogin"])
   }
 }
 
