@@ -55,13 +55,13 @@ class Login extends PureComponent {
     }
   }
 
-  componentDidMount() {
-    if (this.props.isLogin) {
-      this.props.history.push({
-        pathname: '/'
-      })
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.isLogin) {
+  //     this.props.history.push({
+  //       pathname: '/'
+  //     })
+  //   }
+  // }
 }
 
 const mapState = (state) => {
