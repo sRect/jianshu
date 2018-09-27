@@ -188,7 +188,7 @@ const changeLogin = (arg) => {
 
 export const handleLogin = (arg) => {
   return (dispatch) => {
-    axios.get("/api/login.json").then(res => {
+    axios.get("/api/login.json?username=" + arg.username + "&password=" + arg.password).then(res => {
       let data = res.data;
       let status = data.status;
 
