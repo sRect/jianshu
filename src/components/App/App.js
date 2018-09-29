@@ -4,6 +4,7 @@ import Login from '../Login'
 import Header from '../Header'
 import Home from '../Home'
 import Detail from '../Detail'
+import Write from '../Write'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <Header />
             <Route path="/" exact component={Home}></Route>
             <Route path="/login" exact component={Login}></Route>
+            <Route path="/write" exact component={Write}></Route>
             <Route path="/detail/:id" exact component={Detail}></Route>
           </div>
         </BrowserRouter>

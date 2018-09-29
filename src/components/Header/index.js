@@ -116,10 +116,12 @@ class Header extends Component {
             </NavItem> */}
           </Nav>
         </Container>
-        <WriteBtn className="fr">
-          <i className="iconfont icon-pen"></i>
-          写文章
-        </WriteBtn>
+        <Link to="/write">
+          <WriteBtn className="fr">
+            <i className="iconfont icon-pen"></i>
+            写文章
+          </WriteBtn>
+        </Link>
       </HeaderWraper>
     )
   }
