@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import { connect } from 'react-redux'
-import store from '../../store'
+// import store from '../../store'
 import { Link } from 'react-router-dom'
 import {
   getInputFoucused,
@@ -11,7 +11,8 @@ import {
   handleInputBlur,
   getList,
   changeMouseIn,
-  handleChangeList
+  handleChangeList,
+  changeLogin
 } from '../../store/actions'
 
 import {
@@ -48,6 +49,7 @@ class Header extends Component {
       handleInputBlur,
       changeMouseIn,
       handleChangeList,
+      loginout,
       isLogin
     } = this.props;
 
@@ -109,7 +111,7 @@ class Header extends Component {
               <i className="iconfont icon-Aa"></i>
             </NavItem>
             {
-              isLogin ? <NavItem>退出</NavItem> : <Link to='/login'><NavItem>登录</NavItem></Link>
+              isLogin ? <NavItem onClick={loginout}>退出</NavItem> : <Link to='/login'><NavItem>登录</NavItem></Link>
             }
             {/* <NavItem className="fl userWraper">
               <UserBtn></UserBtn>
@@ -145,24 +147,24 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getInputVal: () => {
-      store.dispatch(getInputVal())
+      dispatch(getInputVal())
     },
     getInputFoucused: () => {
-      store.dispatch(getInputFoucused())
+      dispatch(getInputFoucused())
     },
     handleInputChange: (val) => {
-      store.dispatch(handleInputChange(val))
+      dispatch(handleInputChange(val))
     },
     handleInputFocus: (searchInfoList) => {
-      // searchInfoList.size === 0 ? store.dispatch(getList()) : ''; // axios获取数据
-      (searchInfoList.size === 0) && store.dispatch(getList());
-      store.dispatch(handleInputFocus())
+      // searchInfoList.size === 0 ? dispatch(getList()) : ''; // axios获取数据
+      (searchInfoList.size === 0) && dispatch(getList());
+      dispatch(handleInputFocus())
     },
     handleInputBlur: () => {
-      store.dispatch(handleInputBlur())
+      dispatch(handleInputBlur())
     },
     changeMouseIn: (arg) => {
-      store.dispatch(changeMouseIn(arg))
+      dispatch(changeMouseIn(arg))
     },
     handleChangeList: (currentPage, totalPage, spinIcon) => {
       // console.log(spinIcon.style.transform)
@@ -178,10 +180,13 @@ const mapDispatchToProps = (dispatch) => {
 
       spinIcon.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       if (currentPage + 1 > totalPage) {
-        store.dispatch(handleChangeList(1))
+        dispatch(handleChangeList(1))
       } else {
-        store.dispatch(handleChangeList(currentPage + 1))
+        dispatch(handleChangeList(currentPage + 1))
       }
+    },
+    loginout: () => {
+      dispatch(changeLogin(false))
     }
   }
 }

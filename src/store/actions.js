@@ -179,7 +179,7 @@ export const handleGetDetailData = (detailID) => {
 }
 
 // Login
-const changeLogin = (arg) => {
+export const changeLogin = (arg) => {
   return {
     type: types.CHANGE_LOGIN_STATUS,
     arg
